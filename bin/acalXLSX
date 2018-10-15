@@ -1,0 +1,12 @@
+for file in ./*; do
+  [[ $file -nt $latest ]] && [[ ${file: -5} == ".xlsx" ]] && latest=$file
+done
+
+echo "Using file $latest"
+output="${latest/xlsx/csv}"
+
+echo "Converting"
+ssconvert "$latest" "$output"
+echo "Generated File $output"
+echo "Opening in atom"
+atom "$output"
