@@ -10,3 +10,6 @@ alias sstop='con server:stop'
 alias sstatus='con server:status'
 alias tn='tmux new -d -s'
 alias at='tmux detach && tmux switch-client -t'
+
+alias dstart='~/bin/start'
+alias dstop='~/bin/stop'
