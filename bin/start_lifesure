@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+docker-compose -f /home/george/docker/images/lifesure/docker-compose.yml up -d

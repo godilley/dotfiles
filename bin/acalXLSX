@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 for file in ./*; do
   [[ $file -nt $latest ]] && [[ ${file: -5} == ".xlsx" ]] && latest=$file
 done

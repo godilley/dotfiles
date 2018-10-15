@@ -3,3 +3,4 @@ cp -r ~/.zsh-aliases .
 cp -r ~/bin .
 cp -r ~/.tmux.conf .
 cp -r ~/.vimrc .
+cp -r ~/docker .

@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: percona
+    restart: always
+    network_mode: "host"
+    ports:
+      - "3306:3306"
+    volumes:
+      - /var/lib/mysql:/var/lib/mysql
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf
+    environment:
+      MYSQL_ROOT_PASSWORD: DcjeGv7dEnQM94EDTs

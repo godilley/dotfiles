@@ -1,0 +1,51 @@
+version: '3.1'
+
+services:
+    administration:
+        network_mode: "host"
+        build:
+          context: ./docker/administration
+          dockerfile: Dockerfile
+        volumes:
+         - /home/george/git/lifesure/www.lifesure.co.uk:/var/www/html
+         - ./php.ini:/usr/local/etc/php/conf.d/lifesure.ini
+        working_dir: /var/www/html
+        command: nohup php -S 0.0.0.0:8080 -t administration/public
+        environment:
+          APPLICATION_ENV: development
+    quotes:
+        network_mode: "host"
+        build:
+            context: ./docker/administration
+            dockerfile: Dockerfile
+        volumes:
+         - /home/george/git/lifesure/www.lifesure.co.uk:/var/www/html
+         - ./php.ini:/usr/local/etc/php/conf.d/lifesure.ini
+        working_dir: /var/www/html
+        command: nohup php -S 0.0.0.0:8081 -t quote
+        environment:
+            APPLICATION_ENV: development
+    wp:
+        network_mode: "host"
+        build:
+            context: ./docker/administration
+            dockerfile: Dockerfile
+        volumes:
+           - /home/george/git/lifesure/www.lifesure.co.uk:/var/www/html
+           - ./php.ini:/usr/local/etc/php/conf.d/lifesure.ini
+        working_dir: /var/www/html
+        command: nohup php -S 0.0.0.0:8082 -t cms
+        environment:
+            APPLICATION_ENV: development
+
+    db:
+        image: mysql:5.5
+        restart: always
+        network_mode: "host"
+        ports:
+            - "3306:3306"
+        volumes:
+            - /home/george/.docker_data/lifesure/mysql:/var/lib/mysql
+            - ./my.cnf:/etc/mysql/conf.d/my.cnf
+        environment:
+            MYSQL_ROOT_PASSWORD: root

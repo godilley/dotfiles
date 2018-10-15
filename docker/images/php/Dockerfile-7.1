@@ -1,0 +1,36 @@
+FROM php:7.1-cli-alpine3.7
+
+RUN apk add --no-cache --virtual .build-deps \
+        autoconf \
+        binutils \
+        curl-dev \
+        freetype-dev \
+        g++ \
+        gcc \
+        icu-dev\
+        libcurl \
+        libjpeg-turbo-dev \
+        libmcrypt-dev \
+        libpng-dev \
+        libxml2-dev \
+        make \
+        postfix \
+    && apk add --no-cache \
+        git \
+    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install -j "$(getconf _NPROCESSORS_ONLN)" \
+        exif \
+        fileinfo \
+        gd \
+        intl \
+        json \
+        pdo_mysql \
+        soap \
+        zip \
+    && pecl install xdebug-2.6.0 \
+    && docker-php-ext-enable xdebug \
+    && rm -rf /var/cache/apk/*
+
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+COPY php.ini /usr/local/etc/php/
