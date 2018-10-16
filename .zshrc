@@ -99,7 +99,7 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 
 
-#phpbrew
+# Custom alias file loading
 if [ -d "./.zsh-aliases" ]; then
   for f in ~/.zsh-aliases/*; do
     source $f
