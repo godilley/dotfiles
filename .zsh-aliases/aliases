@@ -1,16 +1,12 @@
+#!/usr/bin/zsh
 alias clip='xclip -selection clipboard'
 alias con="bin/console"
 alias curldump='curl -L -s -v -o/dev/null '
 alias ssh_to_clipboard="cat ~/.ssh/id_rsa.pub| xclip -selection clipboard"
 alias myssh="cat ~/.ssh/id_rsa.pub"
-alias gop='~/bin/gitopen'
 alias dc='docker-compose'
 alias sstart='con server:start'
 alias sstop='con server:stop'
 alias sstatus='con server:status'
 alias tn='tmux new -d -s'
 alias at='tmux detach && tmux switch-client -t'
-
-alias dstart='~/bin/docker/start'
-alias dstop='~/bin/docker/stop'
-alias dlogs='~/bin/docker/logs'
