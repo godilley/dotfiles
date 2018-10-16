@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+    administration:
+        network_mode: "host"
+        build:
+          context: ./docker/php
+          dockerfile: Dockerfile
+        volumes:
+         - /home/george/git/aubergine/aubergine:/var/www/html
+         - ./php.ini:/usr/local/etc/php/conf.d/aubergine.ini
+        working_dir: /var/www/html
+        command: nohup php -S 0.0.0.0:8080 -t public
+        environment:
+          APPLICATION_ENV: development
+    db:
+        image: mysql:5.5
+        restart: always
+        network_mode: "host"
+        ports:
+            - "3306:3306"
+        volumes:
+            - /home/george/.docker_data/aubergine/mysql:/var/lib/mysql
+            - ./my.cnf:/etc/mysql/conf.d/my.cnf
+        environment:
+            MYSQL_ROOT_PASSWORD: root

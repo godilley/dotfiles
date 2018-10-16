@@ -4,7 +4,7 @@ services:
     administration:
         network_mode: "host"
         build:
-          context: ./docker/administration
+          context: ./docker/php
           dockerfile: Dockerfile
         volumes:
          - /home/george/git/lifesure/www.lifesure.co.uk:/var/www/html
@@ -16,7 +16,7 @@ services:
     quotes:
         network_mode: "host"
         build:
-            context: ./docker/administration
+            context: ./docker/php
             dockerfile: Dockerfile
         volumes:
          - /home/george/git/lifesure/www.lifesure.co.uk:/var/www/html
@@ -28,7 +28,7 @@ services:
     wp:
         network_mode: "host"
         build:
-            context: ./docker/administration
+            context: ./docker/php
             dockerfile: Dockerfile
         volumes:
            - /home/george/git/lifesure/www.lifesure.co.uk:/var/www/html

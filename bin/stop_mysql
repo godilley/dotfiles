@@ -1,3 +1,0 @@
-#!/usr/bin/zsh
-
-docker-compose -f /home/george/docker/images/mysql/docker-compose.yml down
