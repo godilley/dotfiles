@@ -1,0 +1,3 @@
+phpcs --standard=PSR2 --colors -pn src/
+phpmd src text phpmd-symfony.xml --suffixes php
+phpstan analyse --level max src
