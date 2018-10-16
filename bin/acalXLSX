@@ -1,8 +1,18 @@
 #!/bin/zsh
 
+latest=
+
 for file in ./*; do
+  [[ ! $latest ]] && latest=$file
   [[ $file -nt $latest ]] && [[ ${file: -5} == ".xlsx" ]] && latest=$file
 done
+
+echo $latest
+
+if [[ ! -f $latest ]]; then
+  echo "Can't find latest file"
+  exit 1
+fi
 
 echo "Using file $latest"
 output="${latest/xlsx/csv}"
