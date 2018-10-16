@@ -11,5 +11,6 @@ alias sstatus='con server:status'
 alias tn='tmux new -d -s'
 alias at='tmux detach && tmux switch-client -t'
 
-alias dstart='~/bin/start'
-alias dstop='~/bin/stop'
+alias dstart='~/bin/docker/start'
+alias dstop='~/bin/docker/stop'
+alias dlogs='~/bin/docker/logs'

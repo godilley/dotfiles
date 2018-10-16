@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+if [[ -z $1 ]]; then
+    echo "Please specifiy a service"
+fi
+
+if [[ -e ~/docker/images/$1/docker-compose.yml ]]; then
+    docker-compose -f ~/docker/images/$1/docker-compose.yml logs
+fi
