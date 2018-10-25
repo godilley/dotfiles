@@ -3,3 +3,5 @@ alias gop='~/bin/gitopen'
 alias dstart='~/bin/docker/start'
 alias dstop='~/bin/docker/stop'
 alias dlogs='~/bin/docker/logs'
+
+alias chromium-blank='~/bin/docker/chromium-blank'
