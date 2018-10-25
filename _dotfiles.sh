@@ -4,3 +4,5 @@ rsync -av --progress --delete ~/bin .
 rsync -av --progress --delete ~/.tmux.conf .
 rsync -av --progress --delete ~/.vimrc .
 rsync -av --progress --delete ~/docker .
+
+rm -rf .zsh-aliases/ssh #Remove sensitive data
