@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+if [[ -z $1 ]]; then
+    echo "Please specifiy a service"
+fi
+
+if [[ -f ~/docker/images/$1/docker-compose.yml ]]; then
+    docker-compose -f ~/docker/images/$1/docker-compose.yml build
+else
+    echo "Service '$1' not found"
+fi

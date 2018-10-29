@@ -100,7 +100,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 # Custom alias file loading
-if [ -d "./.zsh-aliases" ]; then
+if [ -d ~/.zsh-aliases ]; then
   for f in ~/.zsh-aliases/*; do
     source $f
   done

@@ -9,7 +9,6 @@ services:
         volumes:
          - /home/george/git/aubergine/aubergine:/var/www/html
          - ./php.ini:/usr/local/etc/php/conf.d/aubergine.ini
-         - /usr/bin/wkhtmltopdf:/usr/bin/wkhtmltopdf
         working_dir: /var/www/html
         command: nohup php -S 0.0.0.0:8080 -t public
         environment:
