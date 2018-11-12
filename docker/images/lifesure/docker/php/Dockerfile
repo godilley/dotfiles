@@ -30,4 +30,4 @@ RUN apk add --no-cache --virtual .build-deps \
         zip \
     && rm -rf /var/cache/apk/*
 
-ENV APPLICATION_ENV development
+ENV APPLICATION_ENV georgelocal

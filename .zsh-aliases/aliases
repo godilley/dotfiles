@@ -10,3 +10,5 @@ alias sstop='con server:stop'
 alias sstatus='con server:status'
 alias tn='tmux new -d -s'
 alias at='tmux detach && tmux switch-client -t'
+
+alias editSignature='vim /home/george/Dropbox/Signature.html'

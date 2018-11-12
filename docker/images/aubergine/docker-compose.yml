@@ -11,6 +11,7 @@ services:
          - ./php.ini:/usr/local/etc/php/conf.d/aubergine.ini
         working_dir: /var/www/html
         command: nohup php -S 0.0.0.0:8080 -t public
+        privileged: true
         environment:
           APPLICATION_ENV: georgelocal
     db:

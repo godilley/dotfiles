@@ -6,6 +6,7 @@ export GPG_TTY=$(tty)
 
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/.yarn/bin"
 
 fpath=(~/.zsh/completion $fpath)
 
@@ -66,10 +67,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  archlinux,
-  git-flow
-)
+plugins=(archlinux git-flow extract)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,3 +114,4 @@ if [ -f '/home/george/google-cloud-sdk/path.zsh.inc' ]; then source '/home/georg
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/george/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/george/google-cloud-sdk/completion.zsh.inc'; fi
+export ELECTRON_TRASH=trash-cli

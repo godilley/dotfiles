@@ -12,7 +12,7 @@ services:
         working_dir: /var/www/html
         command: nohup php -S 0.0.0.0:8080 -t administration/public
         environment:
-          APPLICATION_ENV: development
+          APPLICATION_ENV: georgelocal
     quotes:
         network_mode: "host"
         build:
@@ -24,7 +24,7 @@ services:
         working_dir: /var/www/html
         command: nohup php -S 0.0.0.0:8081 -t quote
         environment:
-            APPLICATION_ENV: development
+            APPLICATION_ENV: georgelocal
     wp:
         network_mode: "host"
         build:
