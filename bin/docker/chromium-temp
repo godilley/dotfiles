@@ -1,0 +1,22 @@
+#!/bin/zsh
+
+xhost +
+
+sudo rm -rf /tmp/chromium
+mkdir -p /tmp/chromium
+chmod 777 /tmp/chromium
+
+docker run -it --rm \
+    --init \
+    --net host \
+    --privileged \
+    --cpuset-cpus="0,2" \
+    --memory 2048mb \
+    --volume /tmp/.X11-unix:/tmp/.X11-unix \
+    --volume /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket \
+    --volume /home/george/chrometemp/google-chrome:/home/chromium/.config/chromium \
+    -e DISPLAY=$DISPLAY \
+    -e google_api_key="AIzaSyDwr302FpOSkGRpLlUpPThNTDPbXcIn_FM" \
+    -e google_default_client_id="413772536636.apps.googleusercontent.com" \
+    -e google_default_client_secret="0ZChLK6AxeA3Isu96MkwqDR4" \
+    alpharecon19/chromium:latest

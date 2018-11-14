@@ -34,6 +34,18 @@ services:
            - /home/george/git/lifesure/www.lifesure.co.uk:/var/www/html
            - ./php.ini:/usr/local/etc/php/conf.d/lifesure.ini
         working_dir: /var/www/html
+        command: nohup php -S 0.0.0.0:8083 -t aggregator
+        environment:
+            APPLICATION_ENV: development
+    aggregator:
+        network_mode: "host"
+        build:
+            context: ./docker/php
+            dockerfile: Dockerfile
+        volumes:
+           - /home/george/git/lifesure/www.lifesure.co.uk:/var/www/html
+           - ./php.ini:/usr/local/etc/php/conf.d/lifesure.ini
+        working_dir: /var/www/html
         command: nohup php -S 0.0.0.0:8082 -t cms
         environment:
             APPLICATION_ENV: development

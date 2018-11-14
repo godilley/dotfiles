@@ -12,3 +12,5 @@ alias tn='tmux new -d -s'
 alias at='tmux detach && tmux switch-client -t'
 
 alias editSignature='vim /home/george/Dropbox/Signature.html'
+alias vpnLifesure='sudo pon lifesure'
+alias vpnLifesure.off='sudo poff lifesure'
