@@ -61,3 +61,7 @@ services:
             - ./my.cnf:/etc/mysql/conf.d/my.cnf
         environment:
             MYSQL_ROOT_PASSWORD: root
+    jdk5:
+        image: lwis/java5
+        restart: always
+        network_mode: "host"

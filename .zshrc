@@ -9,6 +9,7 @@ export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.yarn/bin"
 
 fpath=(~/.zsh/completion $fpath)
+export ELECTRON_TRASH=trash-cli
 
 #ENV VARS
 export COMPOSER_MEMORY_LIMIT=-1
@@ -114,7 +115,6 @@ if [ -f '/home/george/google-cloud-sdk/path.zsh.inc' ]; then source '/home/georg
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/george/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/george/google-cloud-sdk/completion.zsh.inc'; fi
-export ELECTRON_TRASH=trash-cli
 
 # Node Version Manager
 export NVM_DIR="$HOME/.nvm"
