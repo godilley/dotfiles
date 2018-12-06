@@ -29,7 +29,11 @@ RUN apk add --no-cache --virtual .build-deps \
         mysql \
         soap \
         zip \
+        bcmath \
     && rm -rf /var/cache/apk/*
+
+RUN apk add gnu-libiconv --update-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ --allow-untrusted
+ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 
 RUN apk --no-cache add msttcorefonts-installer fontconfig && \
     update-ms-fonts && \

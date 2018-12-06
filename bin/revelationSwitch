@@ -1,0 +1,17 @@
+#!/bin/zsh
+
+local file=/tmp/lastWindow
+
+guake --hide
+
+if [[ -e $file ]]; then
+  lastWindow=$(cat $file)
+  echo "Activating $lastWindow"
+  xdotool windowactivate --sync $lastWindow
+  rm $file
+else
+  touch $file
+  lastWindow=$(xdotool getactivewindow)
+  echo $lastWindow > $file
+  xdotool windowactivate --sync $(xdotool search --onlyvisible --class revelation)
+fi
