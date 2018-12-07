@@ -1,14 +1,22 @@
 #!/bin/zsh
 
 local file=/tmp/lastWindow
+local guake=false
 
 if [[ -z $1 ]]; then
   echo "Please specify a window to switch to"
   exit
 fi
 
-guake --hide
-sleep 0.15
+if [[ $(xdotool getactivewindow getwindowname) = "Guake!" ]]; then
+  guake=true
+fi
+
+if [[ $guake ]]; then
+  guake --hide
+  sleep 0.1
+fi
+
 
 if [[ -e $file ]]; then
   lastWindow=$(cat $file)
@@ -19,4 +27,8 @@ else
   lastWindow=$(xdotool getactivewindow)
   echo $lastWindow > $file
   xdotool windowactivate --sync $(xdotool search --onlyvisible --class $1)
+fi
+
+if [[ $guake ]]; then
+  guake --show
 fi
