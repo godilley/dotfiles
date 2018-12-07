@@ -1,6 +1,7 @@
 #!/bin/zsh
 
 local file=/tmp/lastWindow
+local fileGuake=/tmp/lastWindowGuake
 local guake=false
 
 if [[ -z $1 ]]; then
@@ -12,23 +13,26 @@ if [[ $(xdotool getactivewindow getwindowname) = "Guake!" ]]; then
   guake=true
 fi
 
-if [[ $guake ]]; then
-  guake --hide
-  sleep 0.1
-fi
-
 
 if [[ -e $file ]]; then
   lastWindow=$(cat $file)
+  guake=$(cat $fileGuake)
   xdotool windowactivate --sync $lastWindow
   rm $file
+  rm $fileGuake
+  if [[ $guake ]]; then
+    guake --show
+    sleep 0.1
+  fi
 else
+  if [[ $guake ]]; then
+    guake --hide
+    sleep 0.1
+  fi
   touch $file
+  touch $fileGuake
   lastWindow=$(xdotool getactivewindow)
   echo $lastWindow > $file
+  echo $guake > $fileGuake
   xdotool windowactivate --sync $(xdotool search --onlyvisible --class $1)
-fi
-
-if [[ $guake ]]; then
-  guake --show
 fi
