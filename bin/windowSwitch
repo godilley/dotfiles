@@ -2,13 +2,13 @@
 
 local file=/tmp/lastWindow
 
-guake --hide
-sleep 0.15
-
 if [[ -z $1 ]]; then
   echo "Please specify a window to switch to"
   exit
 fi
+
+guake --hide
+sleep 0.15
 
 if [[ -e $file ]]; then
   lastWindow=$(cat $file)
