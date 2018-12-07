@@ -20,7 +20,7 @@ if [[ -e $file ]]; then
   xdotool windowactivate --sync $lastWindow
   rm $file
   rm $fileGuake
-  if [[ $guake ]]; then
+  if [[ $guake = "true" ]]; then
     guake --show
     sleep 0.1
   fi
