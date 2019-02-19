@@ -1,0 +1,28 @@
+#!/bin/bash
+
+cmd=${1}
+verbose=''
+after=${@:2}
+
+if [ "$1" == "install" ]; then
+    verbose='-vvv'
+    after="--ignore-platform-reqs ${@:2}"
+fi
+
+if [ "$1" == "update" ]; then
+    verbose='-vvv'
+    after="--ignore-platform-reqs ${@:2}"
+fi
+
+if [ "$1" == "require" ]; then
+    verbose='-vvv'
+    after="--ignore-platform-reqs ${@:2}"
+fi
+
+docker run --rm \
+    --volume $HOME/.composer:$HOME/.composer:rw \
+    --volume /var/run/docker.sock:/var/run/docker.sock:ro \
+    --volume $(pwd):/app \
+    -e PHP_MEMORY_LIMIT='4096M' \
+    -e COMPOSER_MEMORY_LIMIT=-1 \
+    xigen/php:cli-composer $cmd $verbose $after

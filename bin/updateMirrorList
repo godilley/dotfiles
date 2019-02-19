@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+if [[ $(/usr/bin/id -u) -ne 0 ]]; then
+    echo "Permission denied. Please run this command as root"
+    exit
+fi
+
+# Get the country thing
+/usr/bin/reflector -c "United Kingdom" -p http --sort rate > /etc/pacman.d/mirrorlist
+
+# Work through the alternatives
+/usr/bin/reflector -p http  --latest 30 -p https -p ftp --sort rate >> /etc/pacman.d/mirrorlist
+
+pacman -Syy

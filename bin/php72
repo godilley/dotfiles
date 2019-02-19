@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+tty=
+tty -s && tty=--tty
+docker run \
+    $tty \
+    --rm \
+    -it \
+    --net=host \
+    --init \
+    --user $(id -u):$(id -g) \
+    --volume $(pwd):$(pwd) \
+    --workdir $(pwd) \
+    xigen/php:cli-72 php "$@"

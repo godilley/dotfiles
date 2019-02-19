@@ -4,6 +4,8 @@
 export ZSH=/home/george/.oh-my-zsh
 export GPG_TTY=$(tty)
 
+export FBFONT=/usr/share/kbd/consolefonts/ter-216n.psf.gz
+
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.yarn/bin"
@@ -68,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux git-flow-avh extract rsync)
+plugins=(archlinux git-flow-avh extract rsync catimg docker sudo)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,8 +107,6 @@ if [ -d ~/.zsh-aliases ]; then
   done
 fi
 
-[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
-
 #google
 export GOOGLE_APPLICATION_CREDENTIALS="~/Product_API_Test-c76ea9ee5c28.json"
 
@@ -120,3 +120,8 @@ if [ -f '/home/george/google-cloud-sdk/completion.zsh.inc' ]; then source '/home
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# PHP Version
+alias php /home/george/bin/php73
+export PATH="$PATH:$HOME/bin/php73"
+

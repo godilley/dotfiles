@@ -23,6 +23,8 @@ if [ -z "$1" ]; then
   nohup xdg-open "http://$url" >/dev/null 2>&1 &
 elif [ $1 = "-b" ] ; then
   nohup xdg-open "http://$url/tree/$branch_name" >/dev/null 2>&1 &
+elif [ $1 = "-br" ] ; then
+  nohup xdg-open "http://$url/branches" >/dev/null 2>&1 &
 elif [ $1 = "-c" ] || [ $1 = "-commit" ] || [ $1 = "-commits" ]; then
   if [ -z "$2" ]; then
   nohup xdg-open "http://$url/commits/$branch_name" >/dev/null 2>&1 &
