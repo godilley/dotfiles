@@ -4,7 +4,7 @@
 export ZSH=/home/george/.oh-my-zsh
 export GPG_TTY=$(tty)
 
-export FBFONT=/usr/share/kbd/consolefonts/ter-216n.psf.gz
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export PATH="$PATH:$HOME/bin"
