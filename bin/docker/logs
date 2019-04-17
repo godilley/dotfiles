@@ -5,7 +5,7 @@ if [[ -z $1 ]]; then
 fi
 
 if [[ -f ~/docker/images/$1/docker-compose.yml ]]; then
-    docker-compose -f ~/docker/images/$1/docker-compose.yml logs
+    docker-compose -f ~/docker/images/$1/docker-compose.yml logs ${@:2}
 else
     echo "Service '$1' not found"
 fi

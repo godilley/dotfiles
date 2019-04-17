@@ -1,0 +1,2 @@
+#!/bin/bash
+grimPath="$(xdg-user-dir PICTURES)/Grim/$(date +'%Y-%m-%d-%H%M%S_screencap.png')"; grim -g "$(slurp)" "$grimPath"; echo "$grimPath" | xclip -selection clipboard

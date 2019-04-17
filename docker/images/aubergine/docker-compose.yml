@@ -10,7 +10,7 @@ services:
          - /home/george/git/aubergine/aubergine:/var/www/html
          - ./php.ini:/usr/local/etc/php/conf.d/aubergine.ini
         working_dir: /var/www/html
-        command: nohup php -S 0.0.0.0:8080 -t public
+        command: nohup php -S 0.0.0.0:5000 -t public
         privileged: true
         environment:
           APPLICATION_ENV: georgelocal
@@ -31,8 +31,3 @@ services:
             - ./my.cnf:/etc/mysql/conf.d/my.cnf
         environment:
             MYSQL_ROOT_PASSWORD: root
-
-    mailhog:
-        image: mailhog/mailhog
-        ports:
-            - "8025:8025"

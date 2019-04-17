@@ -1,7 +1,7 @@
 ### Variables
 
 # Logo key = Mod4. Use Mod1 = Alt.
-set $mod Mod1
+set $mod Mod4
 
 # Home row direction keys, like vim
 set $left h
@@ -18,7 +18,9 @@ set $term alacritty
 
 set $menu rofi -show run
 
-input * xkb_layout gb
+input * {
+    xkb_layout gb
+}
 
 ### Output configuration
 
@@ -33,13 +35,10 @@ output VGA-2 resolution 1920x1080 position 3200,0
 ### Idle configuration
 
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * dpms off"' \
+         timeout 900 'swaylock -f -c 000000' \
+         timeout 1200 'swaymsg "output * dpms off"' \
               resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -c 000000'
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Key bindings
 # Start a terminal
@@ -64,6 +63,9 @@ floating_modifier $mod normal
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
+bindsym --release Print exec grim -g \"$(slurp)" - | wl-copy
+bindsym --release Shift+Print exec grimPath="$(xdg-user-dir PICTURES)/Grim/$(date +'%Y-%m-%d-%H%M%S_screencap.png')"; grim -g "$(slurp)" "$grimPath"; echo "$grimPath" | wl-copy
+#bindsym --release Shift+Print exec grim -g \"$(slurp)" $(xdg-user-dir PICTURES)/Grim/$(date +'%Y-%m-%d-%H%M%S_screencap.png')
 # exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
@@ -142,9 +144,14 @@ bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 
-bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
-bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
-bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+#bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+#bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+#bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+
+bindsym XF86AudioNext exec playerctl next 
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause
+
 
 ###
 ### Scratchpad:
@@ -194,7 +201,7 @@ bar {
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     #status_command while date +'%a %b %d | %d/%m/%Y | %l:%M:%S %p'; do sleep 1; done
-    status_command while ~/.config/sway/status.sh; do sleep 1; done
+    status_command while ~/.config/sway/sway_bar.sh; do sleep 1; done
 
     colors {
         statusline #ffffff

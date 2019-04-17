@@ -1,3 +1,0 @@
-#!/usr/bin/zsh
-
-java -jar /home/george/bin/jars/yuicompressor.jar ${@:1}
