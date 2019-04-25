@@ -1,0 +1,10 @@
+#!/usr/bin/zsh
+alias gop='~/bin/gitopen'
+alias dstart='~/bin/docker/start'
+alias drestart='~/bin/docker/restart'
+alias dstop='~/bin/docker/stop'
+alias dbuild='~/bin/docker/build'
+alias dexec='~/bin/docker/exec'
+alias dlogs='~/bin/docker/logs'
+
+alias chromium-blank='~/bin/docker/chromium-blank'

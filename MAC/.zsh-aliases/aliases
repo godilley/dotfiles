@@ -1,0 +1,24 @@
+#!/usr/bin/zsh
+alias clip='xclip -selection clipboard'
+alias con="bin/console"
+alias curldump='curl -L -s -v -o/dev/null '
+alias ssh_to_clipboard="cat ~/.ssh/id_rsa.pub| xclip -selection clipboard"
+alias myssh="cat ~/.ssh/id_rsa.pub"
+alias dc='docker-compose'
+alias sstart='con server:start'
+alias sstop='con server:stop'
+alias sstatus='con server:status'
+alias tn='tmux new -d -s'
+alias at='tmux detach && tmux switch-client -t'
+
+alias editSignature='vim /home/george/Dropbox/Signature.html'
+alias vpnLifesure='sudo pon lifesure'
+alias vpnLifesure.off='sudo poff lifesure'
+alias cblank='chromium-blank'
+alias ag='ag -i'
+alias ags='ag'
+alias nginx.stop='sudo systemctl stop nginx.service'
+alias nginx.start='sudo systemctl start nginx.service'
+alias nginx.status='systemctl status nginx.service'
+
+lso() { ls -l "$@" | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(" %0o ",k);print}'; }
