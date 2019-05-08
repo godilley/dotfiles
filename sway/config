@@ -9,22 +9,36 @@ set $down j
 set $up k
 set $right l
 
-# Your preferred terminal emulator
 set $term alacritty
 
-# Your preferred application launcher
-# Note: it's recommended that you pass the final command to sway
-#set $menu dmenu_path | dmenu | xargs swaymsg exec
+set $menu rofi -m $(expr $(swaymsg -t get_tree | jq '.nodes | map([recurse(.nodes[]?, .floating_nodes[]?) | .focused] | any) | index(true)') - 1) -show drun -run-command 'swaymsg exec -- {cmd}'
 
-set $menu rofi -show run
+set $cl_high #009ddc
+set $cl_indi #d9d8d8
+set $cl_back #231f20
+set $cl_fore #d9d8d8
+set $cl_urge #ee2e24
+
+# Colors                border   bg       text     indi     childborder
+client.focused          $cl_high $cl_high $cl_fore $cl_indi $cl_high
+client.focused_inactive $cl_back $cl_back $cl_fore $cl_back $cl_back
+client.unfocused        $cl_back $cl_back $cl_fore $cl_back $cl_back
+client.urgent           $cl_urge $cl_urge $cl_fore $cl_urge $cl_urge
 
 input * {
     xkb_layout gb
 }
 
-### Output configuration
+font hack 9
 
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+# Window borders
+new_window pixel 1
+new_float pixel 1
+hide_edge_borders smart
+
+smart_gaps on
+gaps inner 10
+
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 output * bg /home/george/Pictures/Wallpapers/wallpaper2.png fill
 
@@ -64,7 +78,7 @@ floating_modifier $mod normal
 bindsym $mod+Shift+c reload
 
 bindsym --release Print exec grim -g \"$(slurp)" - | wl-copy
-bindsym --release Shift+Print exec grimPath="$(xdg-user-dir PICTURES)/Grim/$(date +'%Y-%m-%d-%H%M%S_screencap.png')"; grim -g "$(slurp)" "$grimPath"; echo "$grimPath" | wl-copy
+bindsym --release Shift+Print exec grimPath="$(~/Grim/$(date +'%Y-%m-%d-%H%M%S_screencap.png')"; grim -g "$(slurp)" "$grimPath"; echo "$grimPath" | wl-copy
 #bindsym --release Shift+Print exec grim -g \"$(slurp)" $(xdg-user-dir PICTURES)/Grim/$(date +'%Y-%m-%d-%H%M%S_screencap.png')
 # exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
