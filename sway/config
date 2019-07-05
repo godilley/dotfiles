@@ -32,15 +32,16 @@ input * {
 font hack 9
 
 # Window borders
-new_window pixel 1
-new_float pixel 1
+default_border pixel 1
+default_floating_border pixel 1
 hide_edge_borders smart
 
 smart_gaps on
 gaps inner 10
 
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg /home/george/Pictures/Wallpapers/wallpaper2.png fill
+#output * bg /home/george/Pictures/Wallpapers/wallpaper2.png fill
+output * bg /home/george/Pictures/Wallpapers/martin.png fill
 
 output DVI-I-1 resolution 1920x1080 position 0,0
 output HDMI-A-1 resolution 1920x1080 position 1920,0

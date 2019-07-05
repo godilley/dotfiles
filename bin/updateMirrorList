@@ -6,7 +6,7 @@ if [[ $(/usr/bin/id -u) -ne 0 ]]; then
 fi
 
 echo "# Chris' Janky Repo" > /etc/pacman.d/mirrorlist
-echo 'Server = http://arch-mirror.xigen.io/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
+echo 'Server = https://arch-mirror.xigen.io/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
 
 # Get the country thing
 /usr/bin/reflector -c "United Kingdom" -p http --sort rate >> /etc/pacman.d/mirrorlist

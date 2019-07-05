@@ -74,4 +74,7 @@ colorscheme railscasts
 " git blame stuff
 nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
 
+set encoding=utf-8  " The encoding displayed.
+set fileencoding=utf-8  " The encoding written to file.
+
 set nowrap
