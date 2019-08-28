@@ -1,0 +1,125 @@
+{
+    "layer": "bottom",
+    "position": "top",
+    "height": 27,
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/load", "custom/spotify"],
+    "modules-center": ["custom/time"],
+    "modules-right": ["custom/kernel", "memory", "custom/storage", "custom/snapcount", "pulseaudio", "clock", "tray"],
+    "sway/mode": {
+        "format": " {}"
+    },
+    "sway/workspaces": {
+        "format": "{name}",
+        "disable-scroll-wraparound": true,
+        "enable-bar-scroll": true,
+        "smooth-scrolling-threshold": 30
+    },
+    "sway/window": {
+        "max-length": 80,
+        "tooltip": false
+    },
+    "clock": {
+        "format": "{:%a %b %d - %d/%m/%y}",
+        "tooltip": false
+    },
+    "network": {
+        "format": "{icon}",
+        "format-alt": "{ipaddr}/{cidr} {icon}",
+        "format-alt-click": "click-right",
+        "format-icons": {
+            "wifi": ["", "" ,""],
+            "ethernet": [""],
+            "disconnected": [""]
+        },
+        "on-click": "termite -e nmtui",
+    "tooltip": false
+    },
+    "pulseaudio": {
+        "format": "{volume} {icon}",
+        "format-alt": "{volume} {icon}",
+        "format-alt-click": "click-right",
+        "format-muted": "",
+        "format-icons": {
+            "phone": [" ", " ", " ", " "],
+            "default": ["", "", "", ""]
+        },
+        "scroll-step": 10,
+        "on-click": "pavucontrol",
+        "tooltip": false
+    },
+    "custom/spotify": {
+        "interval": 2,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/spotify.sh",
+        "exec-if": "pgrep spotify",
+        "escape": true
+    },
+    "custom/storage": {
+        "format": "{} ",
+        "format-alt": "{percentage}% ",
+        "format-alt-click": "click-right",
+        "return-type": "json",
+        "interval": 60,
+        "exec": "~/.config/waybar/modules/storage.sh"
+    },
+    "custom/snapcount": {
+        "format": "{} ",
+        "return-type": "json",
+        "interval": 400,
+        "exec": "~/.config/waybar/modules/snapcount.sh",
+        "exec-if": "ls /usr/bin | grep zpool"
+    },
+    "backlight": {
+        "format": "{icon}",
+        "format-alt": "{percent}% {icon}",
+        "format-alt-click": "click-right",
+        "format-icons": ["", ""],
+        "on-scroll-down": "light -A 1",
+        "on-scroll-up": "light -U 1"
+    },
+    "custom/time": {
+        "format": "{}",
+        "interval": 1,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/time.sh"
+    },
+    "custom/kernel": {
+        "format": "{}",
+        "interval": 100,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/kernel.sh"
+    },
+    "custom/load": {
+        "format": "{}",
+        "interval": 5,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/load.sh"
+    },
+    "custom/weather": {
+        "format": "{}",
+        "format-alt": "{alt}: {}",
+        "format-alt-click": "click-right",
+        "interval": 220,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/weather.sh Bedford"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip": false
+    },
+    "tray": {
+        "icon-size": 18
+    },
+    "cpu": {
+        "tooltip": false,
+        "format": "{}% "
+    },
+    "memory": {
+        "tooltip": false,
+        "format": "{}% "
+    }
+}
