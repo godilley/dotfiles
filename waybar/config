@@ -4,7 +4,7 @@
     "height": 27,
     "modules-left": ["sway/workspaces", "sway/mode", "custom/load", "custom/spotify"],
     "modules-center": ["custom/time"],
-    "modules-right": ["custom/kernel", "memory", "custom/storage", "custom/snapcount", "pulseaudio", "clock", "tray"],
+    "modules-right": ["custom/kernel", "memory", "custom/storage", "pulseaudio", "clock", "tray"],
     "sway/mode": {
         "format": " {}"
     },
@@ -61,13 +61,6 @@
         "return-type": "json",
         "interval": 60,
         "exec": "~/.config/waybar/modules/storage.sh"
-    },
-    "custom/snapcount": {
-        "format": "{} ",
-        "return-type": "json",
-        "interval": 400,
-        "exec": "~/.config/waybar/modules/snapcount.sh",
-        "exec-if": "ls /usr/bin | grep zpool"
     },
     "backlight": {
         "format": "{icon}",
