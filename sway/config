@@ -78,8 +78,8 @@ floating_modifier $mod normal
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
-#bindsym --release Print exec grim -g \"$(slurp)" - | wl-copy
-bindsym --release Print exec grim -g \"$(slurp)" - | xclip -selection clipboard -t image/png
+bindsym --release Print exec grim -g \"$(slurp)" - | wl-copy
+#bindsym --release Print exec grim -g \"$(slurp)" - | xclip -selection clipboard -t image/png
 bindsym --release Shift+Print exec grimPath="$(~/Grim/$(date +'%Y-%m-%d-%H%M%S_screencap.png')"; grim -g "$(slurp)" "$grimPath"; echo "$grimPath" | wl-copy
 #bindsym --release Shift+Print exec grim -g \"$(slurp)" $(xdg-user-dir PICTURES)/Grim/$(date +'%Y-%m-%d-%H%M%S_screencap.png')
 # exit sway (logs you out of your Wayland session)
