@@ -7,6 +7,7 @@ export GPG_TTY=$(tty)
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+export PATH="$PATH:$HOME/.composer/vendor/bin"
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.yarn/bin"
 
@@ -124,4 +125,5 @@ export NVM_DIR="$HOME/.nvm"
 # PHP Version
 alias php /home/george/bin/php73
 export PATH="$PATH:$HOME/bin/php73"
+export EDITOR=vim
 

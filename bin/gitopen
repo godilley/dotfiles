@@ -25,6 +25,8 @@ elif [ $1 = "-b" ] ; then
   nohup xdg-open "http://$url/tree/$branch_name" >/dev/null 2>&1 &
 elif [ $1 = "-i" ] ; then
   nohup xdg-open "http://$url/issues" >/dev/null 2>&1 &
+elif [ $1 = "-j" ] ; then
+  nohup xdg-open "http://$url/-/jobs" >/dev/null 2>&1 &
 elif [ $1 = "-br" ] ; then
   nohup xdg-open "http://$url/branches" >/dev/null 2>&1 &
 elif [ $1 = "-c" ] || [ $1 = "-commit" ] || [ $1 = "-commits" ]; then
@@ -41,6 +43,18 @@ elif [ $1 = "-bl"  ] || [ $1 = "-blame" ] ; then
     blame=$(git rev-parse --show-toplevel)/$2
     if [ -e $blame ]; then
       nohup xdg-open "http://$url/blame/$branch_name/$2" >/dev/null 2>&1 &
+    else
+      echo "File '$2' doesn't exist"
+    fi
+  fi
+elif [ $1 = "-f"  ] || [ $1 = "-file" ] ; then
+  if [ -z "$2" ]; then
+    echo "Please specify a file to open on git"
+  else
+    # check file exists
+    blame=$(git rev-parse --show-toplevel)/$2
+    if [ -e $blame ]; then
+      nohup xdg-open "http://$url/tree/$branch_name/$2" >/dev/null 2>&1 &
     else
       echo "File '$2' doesn't exist"
     fi
