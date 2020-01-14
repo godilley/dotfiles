@@ -1,3 +1,4 @@
 #!/usr/bin/zsh
 alias response='/home/george/git/acalbfi/redirect-tools/bin/console tools:response'
-alias blue='echo -e '\''connect 00:16:94:33:6A:21'\'' | bluetoothctl'
+#alias blue='echo -e '\''connect 00:16:94:33:6A:21'\'' | bluetoothctl'
+alias blue='echo -e '\''connect 38:18:4C:6D:23:B0'\'' | bluetoothctl'

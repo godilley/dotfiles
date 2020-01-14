@@ -10,6 +10,7 @@ export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.yarn/bin"
+export PATH="$PATH:$HOME/.ebcli-virtual-env/executables"
 
 fpath=(~/.zsh/completion $fpath)
 export ELECTRON_TRASH=trash-cli
@@ -116,11 +117,6 @@ if [ -f '/home/george/google-cloud-sdk/path.zsh.inc' ]; then source '/home/georg
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/george/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/george/google-cloud-sdk/completion.zsh.inc'; fi
-
-# Node Version Manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # PHP Version
 alias php /home/george/bin/php73

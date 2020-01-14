@@ -15,4 +15,8 @@ elif [[ $class == "stopped" ]]; then
   text=""
 fi
 
+if [[ -f "/home/george/hidespotify" ]]; then
+  text=$icon
+fi
+
 echo -e "{\"text\":\""$text"\", \"class\":\""$class"\"}"

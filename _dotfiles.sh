@@ -9,3 +9,4 @@ rsync -av --progress --delete ~/.config/waybar* .
 
 rm -rf .zsh-aliases/ssh #Remove sensitive data
 rm -rf ./bin/syncFromSyloLiveDB #Remove sensitive data
+rm -rf ./bin/mysql-*
