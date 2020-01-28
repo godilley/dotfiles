@@ -1,0 +1,14 @@
+#!/bin/bash
+
+tty=
+tty -s && tty=--tty
+
+docker run \
+  $tty \
+  --rm \
+  --init \
+  --entrypoint /usr/local/bin/npm \
+  -u $(id -u):$(id -g) \
+  -v $(pwd):$(pwd) \
+  --workdir $(pwd) \
+  xigen/node:11 $@
