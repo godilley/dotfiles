@@ -1,5 +1,7 @@
 ### Variables
 
+focus_follows_mouse yes
+
 # Logo key = Mod4. Use Mod1 = Alt.
 set $mod Mod4
 
@@ -34,18 +36,23 @@ font hack, FontAwesome, 9
 # Window borders
 default_border pixel 1
 default_floating_border pixel 1
-hide_edge_borders smart
+hide_edge_borders both
 
-smart_gaps on
-gaps inner 10
+smart_gaps off
+gaps inner 0
 
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #output * bg /home/george/Pictures/Wallpapers/wallpaper2.png fill
 output * bg /home/george/Pictures/Wallpapers/ArchBtw.png fill
 
-output DVI-I-1 resolution 1920x1080 position 0,0
-output HDMI-A-1 resolution 1920x1080 position 1920,0
-output VGA-2 resolution 1920x1080 position 3200,0
+## Work Outputs
+# output DVI-I-1 resolution 1920x1080 position 0,0
+# output HDMI-A-1 resolution 1920x1080 position 1920,0
+# output VGA-2 resolution 1920x1080 position 3200,0
+
+## Home Outputs
+output VGA-2 resolution 1920x1080@60.000000Hz position 0,0
+output HDMI-A-2 resolution 1920x1080@60.000000Hz position 1920,0
 
 ### Idle configuration
 
@@ -206,6 +213,7 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+bindsym ALT+Tab exec /home/george/bin/swytch.sh
 
 # waybar
 #exec_always --no-startup-id waybar
@@ -215,20 +223,21 @@ exec_always --no-startup-id ~/.config/waybar/waybar.sh
 ### Status Bar:
 ###
 ### Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    #status_command while date +'%a %b %d | %d/%m/%Y | %l:%M:%S %p'; do sleep 1; done
-    #status_command while true; do sleep 1 && ~/.config/sway/sway_bar.sh; done
-    status_command waybar
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+# bar {
+#     position top
+#     mode hide
+# 
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+#     #status_command while date +'%a %b %d | %d/%m/%Y | %l:%M:%S %p'; do sleep 1; done
+#     #status_command while true; do sleep 1 && ~/.config/sway/sway_bar.sh; done
+#     status_command waybar
+# 
+#     colors {
+#         statusline #ffffff
+#         background #323232
+#         inactive_workspace #32323200 #32323200 #5c5c5c
+#     }
+# }
 
 include /etc/sway/config.d/*

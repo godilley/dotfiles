@@ -1,0 +1,19 @@
+#!/bin/zsh
+
+if [[ -z $1 ]]; then
+  echo "Please specify a window to switch to"
+  exit
+fi
+
+
+# Get available windows
+windows=$(swaymsg -t get_tree | jq -r '.nodes[1].nodes[].nodes[] | .. | (.id|tostring) + " " + .name?' | grep -e "[0-9]* ."  )
+#
+# Select window with rofi
+selected=$(echo "$windows" | grep -i "$1" | awk '{print $1}')
+
+# Tell sway to focus said window
+if [[ -z $selected ]]; then
+  exit
+fi
+swaymsg "[con_id=$selected] focus"

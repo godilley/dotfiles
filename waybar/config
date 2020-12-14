@@ -2,7 +2,7 @@
     "layer": "bottom",
     "position": "top",
     "height": 27,
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/load", "custom/spotify"],
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/load", "custom/spotify", "custom/juk"],
     "modules-center": ["custom/time"],
     "modules-right": ["custom/kernel", "memory", "custom/storage", "pulseaudio", "clock", "tray"],
     "sway/mode": {
@@ -35,8 +35,8 @@
     "tooltip": false
     },
     "pulseaudio": {
-        "format": "{volume} {icon}",
-        "format-alt": "{volume} {icon}",
+        "format": "{volume}% {icon}",
+        "format-alt": "{volume}% {icon}",
         "format-alt-click": "click-right",
         "format-muted": "",
         "format-icons": {
@@ -52,6 +52,15 @@
         "return-type": "json",
         "exec": "~/.config/waybar/modules/spotify.sh",
         "exec-if": "pgrep spotify",
+        "escape": true
+    },
+    "custom/juk": {
+        "format": "{}",
+        "interval": 2,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/juk.sh",
+        "exec-if": "pgrep juk",
+        "on-click": "~/bin/swaySwitchWindow juk",
         "escape": true
     },
     "custom/storage": {
