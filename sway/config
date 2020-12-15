@@ -51,8 +51,11 @@ output * bg /home/george/Pictures/Wallpapers/ArchBtw.png fill
 # output VGA-2 resolution 1920x1080 position 3200,0
 
 ## Home Outputs
-output VGA-2 resolution 1920x1080@60.000000Hz position 0,0
-output HDMI-A-2 resolution 1920x1080@60.000000Hz position 1920,0
+output VGA-1 resolution 1920x1080@60.000000Hz position 0,0
+output HDMI-A-1 resolution 1920x1080@60.000000Hz position 1920,0
+output VGA-2 resolution 1920x1080@60.000000Hz position 3840,0
+
+output HDMI-A-2 resolution 2560x1080@60.000000Hz position 1600,-1080
 
 ### Idle configuration
 
