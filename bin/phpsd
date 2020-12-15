@@ -1,2 +1,2 @@
-#nohup phpstorm-eap . >/dev/null 2>&1 &
 nohup phpstorm $(pwd) >/dev/null 2>&1 &
+#nohup phpstorm-eap $(pwd) >/dev/null 2>&1 &

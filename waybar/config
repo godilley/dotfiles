@@ -4,7 +4,7 @@
     "height": 27,
     "modules-left": ["sway/workspaces", "sway/mode", "custom/load", "custom/spotify", "custom/juk"],
     "modules-center": ["custom/time"],
-    "modules-right": ["custom/kernel", "memory", "custom/storage", "pulseaudio", "clock", "tray"],
+    "modules-right": ["custom/kernel", "memory", "custom/storage", "pulseaudio", "clock", "tray", "custom/clear-notifications"],
     "sway/mode": {
         "format": " {}"
     },
@@ -61,6 +61,12 @@
         "exec": "~/.config/waybar/modules/juk.sh",
         "exec-if": "pgrep juk",
         "on-click": "~/bin/swaySwitchWindow juk",
+        "escape": true
+    },
+    "custom/clear-notifications": {
+        "format": "{}🔔 ",
+        "interval": 100,
+        "on-click": "dunstctl close-all",
         "escape": true
     },
     "custom/storage": {
