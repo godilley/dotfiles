@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [[ -z $1 ]]; then
+    echo "Please enter a node version"
+    exit 1
+fi
+
+tty=
+tty -s && tty=--tty
+
+docker run \
+  $tty \
+  --rm \
+  --init \
+  -v $(pwd):$(pwd) \
+  -u $(id -u):$(id -g) \
+  --workdir $(pwd) \
+  xigen/node:$1 ${@:2}

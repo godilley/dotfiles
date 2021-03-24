@@ -1,0 +1,2 @@
+#!/bin/sh
+i3lockmore --image-fill ~/Wallpapers/DoesntUnlessTold.png --dpms 5

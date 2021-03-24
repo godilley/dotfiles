@@ -1,0 +1,9 @@
+#!/bin/bash
+CURRENT_BRIGHTNESS=$(brightnessctl --device='dell::kbd_backlight' get)
+
+if [[ ${CURRENT_BRIGHTNESS} -eq 2 ]]; then
+    brightnessctl -q --device='dell::kbd_backlight' set 0
+    exit
+fi
+
+brightnessctl -q --device='dell::kbd_backlight' set 2
